@@ -14,7 +14,7 @@ export const course = {
   },
   // Caminho da logo original (ex.: "/images/logo-viver-de-loja.png"). null = logo em texto.
   logo: null as string | null,
-  promoPrice: "R$297,00",
+  promoPrice: "R$397,00",
   expectedPrice: "R$1.000",
   dates: null as string | null,
   schedule: null as string | null,

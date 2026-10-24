@@ -240,7 +240,7 @@ function Index() {
                 <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-success" aria-hidden />{i}</li>
               ))}
             </ul>
-            <p className="mt-6 text-center text-sm text-muted-foreground">Menos de 30% do valor previsto, exclusivo para quem entrar na primeira turma.</p>
+            <p className="mt-6 text-center text-sm text-muted-foreground">Menos de 40% do valor previsto, exclusivo para quem entrar na primeira turma.</p>
             <OfferButton className="mt-6 w-full whitespace-normal text-center">Quero fazer parte da primeira turma</OfferButton>
             <p className="mt-5 text-center text-sm text-muted-foreground">Datas, condições de pagamento e prazo de acesso às gravações serão informados na abertura das inscrições.</p>
             <p className="mt-4 border-t border-border pt-4 text-center text-xs text-muted-foreground">Estoque, produção, embalagens, publicidade e eventuais ferramentas da operação são investimentos separados do treinamento.</p>
