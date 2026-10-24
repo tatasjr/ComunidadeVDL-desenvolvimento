@@ -11,7 +11,7 @@ import studio from "@/assets/studio.jpg";
 
 const title = "Moda nos Marketplaces | Treinamento Viver de Loja com Junior Martins";
 const description =
-  "Aprenda a estruturar sua loja de roupas na Shopee, Mercado Livre, SHEIN e TikTok Shop: produtos, anúncios, margens e rotina. Primeira turma.";
+  "Aprenda a estruturar sua loja de roupas na Shopee, no Mercado Livre e na SHEIN: produtos, anúncios, margens e rotina. Primeira turma.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const channels = ["Shopee", "Mercado Livre", "SHEIN", "TikTok Shop"];
+const channels = ["Shopee", "Mercado Livre", "SHEIN"];
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="mb-3 text-sm font-bold uppercase tracking-widest text-accent">{children}</p>;
@@ -52,7 +52,7 @@ function Index() {
                 Saia do zero e monte sua loja de moda nos marketplaces com método: produto certo, anúncio que mostra bem a peça e preço que deixa margem no seu bolso.
               </p>
               <p className="mt-4 text-muted-foreground">
-                Um passo a passo prático, do plano da loja ao primeiro pedido embalado, para revendedores e fabricantes que querem começar na Shopee, no Mercado Livre, na SHEIN e no TikTok Shop.
+                Um passo a passo prático, do plano da loja ao primeiro pedido embalado, para revendedores e fabricantes que querem começar na Shopee, no Mercado Livre e na SHEIN.
               </p>
               <div className="mt-8">
                 <a href="#investimento" className="inline-flex h-14 items-center justify-center rounded-full bg-accent px-8 text-base font-bold text-accent-foreground shadow-soft transition-all hover:-translate-y-0.5 hover:brightness-110">
