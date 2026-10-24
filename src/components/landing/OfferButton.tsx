@@ -30,7 +30,7 @@ export function OfferButton({ children, className }: { children: React.ReactNode
             As inscrições ainda não estão abertas.
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
-            A oferta de lançamento será de R$297. O calendário, as condições de pagamento e o canal
+            A oferta de lançamento será de R$397. O calendário, as condições de pagamento e o canal
             de inscrição serão divulgados na abertura da turma.
           </DialogDescription>
           <DialogFooter>
