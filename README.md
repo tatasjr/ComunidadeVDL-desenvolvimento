@@ -1,24 +1,23 @@
-# Faithful Image To Interface
+# Moda nos Marketplaces — Viver de Loja
 
-Implement exactly the screenshot and nothing else
+Página de vendas do treinamento com Junior Martins.
 
-This project was built with [Lovable](https://lovable.dev).
+## Alterar o preço
 
-## Build with Lovable
+Em `src/config/curso.ts`, altere `valorCurso` (primeira turma) e `valorPrevisto` (valor previsto, não preço anterior). Use números, por exemplo `397.00`, sem o símbolo R$. Todos os valores exibidos são formatados automaticamente em reais.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/830da323-4d87-471e-9359-ab382ca651e1).
+## Inserir o checkout
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+Preencha `linkPagamento` com a URL HTTPS completa do checkout, por exemplo `https://checkout.seu-dominio.com/curso`. Todos os botões de inscrição passam a direcionar para esse endereço. Enquanto estiver vazio ou inválido, mostram apenas o aviso de inscrições não abertas. Links de menu e “Conhecer a oferta” continuam navegando pela página. Não há coleta de dados nem processamento de pagamento próprio.
 
-## Development
+## Publicar as alterações
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Revise a página no Lovable, confira o preço e os botões e clique em **Publish**. Se já estiver publicada, publique novamente para atualizar a versão pública. Alterar a prévia não atualiza automaticamente a página publicada.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## Imagens e identificação
+
+Nenhuma logo ou foto real foi fornecida: a página usa a marca em texto e as iniciais JM. As imagens de roupas são ilustrativas. A identidade e biografia ficam em `src/config/curso.ts`.
+
+## Desenvolvimento
+
+Use `bun install`, `bun run dev` e `bun run test`.
