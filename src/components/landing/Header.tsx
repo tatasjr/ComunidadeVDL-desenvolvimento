@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
+import { OfferButton } from "./OfferButton";
 
 const links = [
   { href: "#treinamento", label: "O treinamento" },
@@ -22,9 +23,9 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <Button asChild variant="cta" size="default"><a href="#investimento">Conhecer a primeira turma</a></Button>
+          <OfferButton className="h-11 px-5 text-sm">Conhecer a primeira turma</OfferButton>
         </nav>
-        <button
+        <Button variant="ghost" size="icon"
           className="flex h-11 w-11 items-center justify-center rounded-full text-primary-foreground lg:hidden"
           aria-expanded={open}
           aria-controls="menu-mobile"
@@ -32,7 +33,7 @@ export function Header() {
           onClick={() => setOpen(!open)}
         >
           {open ? <X /> : <Menu />}
-        </button>
+        </Button>
       </div>
       {open && (
         <nav id="menu-mobile" aria-label="Menu móvel" className="border-t border-primary-foreground/15 px-5 pb-6 lg:hidden">
@@ -45,7 +46,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Button asChild variant="cta" className="mt-3 w-full"><a href="#investimento" onClick={() => setOpen(false)}>Conhecer a primeira turma</a></Button>
+          <OfferButton className="mt-3 w-full whitespace-normal">Conhecer a primeira turma</OfferButton>
         </nav>
       )}
     </header>

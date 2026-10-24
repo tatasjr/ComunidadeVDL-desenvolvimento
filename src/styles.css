@@ -68,23 +68,23 @@
 }
 
 :root {
-  --radius: 1rem;
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.25 0.06 295);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.25 0.06 295);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.25 0.06 295);
-  --primary: oklch(0.42 0.13 296);
+  --primary: oklch(0.406 0.138 299);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.38 0.07 295);
+  --secondary: oklch(0.392 0.088 296);
   --secondary-foreground: oklch(0.99 0 0);
   --muted: oklch(0.97 0.012 300);
   --muted-foreground: oklch(0.45 0.04 295);
-  --accent: oklch(0.6 0.23 358);
+  --accent: oklch(0.626 0.247 359);
   --accent-foreground: oklch(0.99 0 0);
-  --success: oklch(0.63 0.17 148);
-  --warning: oklch(0.74 0.16 65);
+  --success: oklch(0.633 0.2 146);
+  --warning: oklch(0.737 0.166 63);
   --lilac: oklch(0.965 0.018 305);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
@@ -145,7 +145,7 @@
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   body { font-family: var(--font-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {

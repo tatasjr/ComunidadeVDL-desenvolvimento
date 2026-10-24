@@ -8,14 +8,15 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
-import { checkoutAvailable, course } from "@/config/course";
+import { configuracaoCurso, pagamentoSeguro } from "@/config/curso";
 
 export function OfferButton({ children, className }: { children: React.ReactNode; className?: string }) {
   const [open, setOpen] = useState(false);
-  if (checkoutAvailable()) {
+  const checkout = pagamentoSeguro(configuracaoCurso.linkPagamento);
+  if (checkout) {
     return (
       <Button asChild variant="cta" size="lg" className={className}>
-        <a href={course.checkoutUrl!}>{children}</a>
+        <a href={checkout}>{children}</a>
       </Button>
     );
   }
@@ -25,13 +26,12 @@ export function OfferButton({ children, className }: { children: React.ReactNode
         {children}
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="rounded-2xl">
+        <DialogContent className="rounded-lg">
           <DialogTitle className="font-display text-2xl text-primary">
             As inscrições ainda não estão abertas.
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
-            A oferta de lançamento será de R$397. O calendário, as condições de pagamento e o canal
-            de inscrição serão divulgados na abertura da turma.
+            O calendário, as condições de pagamento e o canal de inscrição serão divulgados na abertura da turma.
           </DialogDescription>
           <DialogFooter>
             <DialogClose asChild>
