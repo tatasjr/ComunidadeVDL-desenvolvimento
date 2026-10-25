@@ -27,7 +27,7 @@ const formatos = [
   { icon: CircleHelp, title: "Dois plantões ao vivo", text: "Encontros dedicados aos pontos que precisam de mais atenção." },
 ];
 
-function Index() {
+export function Index() {
   const preco = formatarReais(configuracaoCurso.valorCurso);
   const previsto = formatarReais(configuracaoCurso.valorPrevisto);
   return (
@@ -37,18 +37,18 @@ function Index() {
         <section className="relative isolate overflow-hidden bg-secondary pt-16 text-secondary-foreground">
           <img src={hero} alt="Roupas, arara e embalagens para uma operação de vendas de moda" width={1200} height={1408} className="absolute inset-0 -z-20 h-full w-full object-cover object-right" fetchPriority="high" />
           <div className="absolute inset-0 -z-10 bg-secondary/90" />
-          <div className="mx-auto max-w-6xl px-5 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl px-5 py-6 md:py-16">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold text-secondary-foreground/85">Treinamento online com {configuracaoCurso.professor} | {identidade.marca}</p>
-              <p className="mt-6 font-display text-2xl font-bold text-secondary-foreground">{configuracaoCurso.nome}</p>
-              <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">Você já sabe escolher roupas para vender. Agora, aprenda a levar suas peças para os marketplaces.</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed">Saia do “quero começar” e aprenda a organizar sua loja, cadastrar produtos e preparar sua operação para vender na Shopee, no Mercado Livre e na SHEIN — sabendo quanto precisa cobrar e quanto pode sobrar em cada venda.</p>
-              <p className="mt-4 text-secondary-foreground/85">Para revendedores e fabricantes de roupas que ainda não vendem nesses canais.</p>
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              <p className="mt-4 font-display text-xl font-bold text-secondary-foreground md:mt-6 md:text-2xl">{configuracaoCurso.nome}</p>
+              <h1 className="mt-3 text-[28px] font-bold leading-tight md:mt-4 md:text-5xl">Você já sabe escolher roupas para vender. Agora, aprenda a levar suas peças para os marketplaces.</h1>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed md:mt-6 md:text-lg">Saia do “quero começar” e aprenda a organizar sua loja, cadastrar produtos e preparar sua operação para vender na Shopee, no Mercado Livre e na SHEIN — sabendo quanto precisa cobrar e quanto pode sobrar em cada venda.</p>
+              <p className="mt-3 text-sm text-secondary-foreground/85 md:mt-4 md:text-base">Para revendedores e fabricantes de roupas que ainda não vendem nesses canais.</p>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-6 md:gap-3">
                 {["Aulas online ao vivo.", "Gravações para revisar.", "Grupo de WhatsApp para dúvidas.", "Dois plantões de dúvidas ao vivo."].map(t => <li key={t} className="flex gap-2 text-sm"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{t}</li>)}
               </ul>
-              <OfferButton className="mt-8 h-auto min-h-14 whitespace-normal py-3 text-center">Quero conhecer a primeira turma</OfferButton>
-              <p className="mt-4 text-sm">Condição especial de lançamento: <strong>{preco}</strong>.</p>
+              <OfferButton className="mt-5 h-auto min-h-14 whitespace-normal py-3 text-center md:mt-8">Quero conhecer a primeira turma</OfferButton>
+              <p className="mt-3 text-sm md:mt-4">Condição especial de lançamento: <strong>{preco}</strong>.</p>
             </div>
           </div>
         </section>
