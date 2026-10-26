@@ -24,7 +24,7 @@ export const canais = ["Shopee", "Mercado Livre", "SHEIN"] as const;
 export const identidade = {
   marca: "Viver de Loja",
   logo: null as string | null,
-  fotoProfessor: "/imagens/junior_martins.jpg",
+  fotoProfessor: "../imagens/junior_martins.jpg",
   biografia: [
     "Meu trabalho na Viver de Loja me coloca perto da realidade de quem compra e vende roupas: a busca por fornecedores, a preocupação com preço e o desafio de transformar divulgação em venda.",
     "Também vivo a operação de uma marca própria de roupas, a Lunavelle, e os desafios de vender em marketplaces.",
