@@ -9,20 +9,22 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { configuracaoCurso, pagamentoSeguro } from "@/config/curso";
+import { eventoInscricao } from "@/lib/tracking";
 
 export function OfferButton({ children, className }: { children: React.ReactNode; className?: string }) {
   const [open, setOpen] = useState(false);
   const checkout = pagamentoSeguro(configuracaoCurso.linkPagamento);
+  const rastrear = () => eventoInscricao(configuracaoCurso.valorCurso);
   if (checkout) {
     return (
       <Button asChild variant="cta" size="lg" className={className}>
-        <a href={checkout}>{children}</a>
+        <a href={checkout} onClick={rastrear}>{children}</a>
       </Button>
     );
   }
   return (
     <>
-      <Button variant="cta" size="lg" className={className} onClick={() => setOpen(true)}>
+      <Button variant="cta" size="lg" className={className} onClick={() => { rastrear(); setOpen(true); }}>
         {children}
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
