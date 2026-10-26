@@ -1,7 +1,7 @@
 export const configuracaoCurso = {
   nome: "Moda nos Marketplaces",
   professor: "Junior Martins",
-  valorCurso: 397.00,
+  valorCurso: 497.00,
   valorPrevisto: 1000.00,
   linkPagamento: "",
 };
