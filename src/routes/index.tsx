@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, CircleHelp, Video, MessageCircle, Radio, ArrowDown, Package, Scissors } from "lucide-react";
+import { Check, CircleHelp, Video, MessageCircle, Radio, Package, Scissors } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { CoursePrice } from "@/components/landing/CoursePrice";
 import { ProductionHighlight } from "@/components/landing/ProductionHighlight";
 import { Header } from "@/components/landing/Header";
@@ -50,7 +49,7 @@ export function Index() {
               <ul className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-6 md:gap-3">
                 {["Aulas online ao vivo.", "Gravações para revisar.", "Grupo de WhatsApp para dúvidas.", "Dois plantões de dúvidas ao vivo, em grupo para os alunos da turma, em datas estipuladas."].map(t => <li key={t} className="flex gap-2 text-sm"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{t}</li>)}
               </ul>
-              <OfferButton className="mt-5 h-auto min-h-14 whitespace-normal py-3 text-center md:mt-8">Quero conhecer a primeira turma</OfferButton>
+              <OfferButton className="mt-5 h-auto min-h-14 whitespace-normal py-3 text-center md:mt-8">Quero fazer parte da primeira turma</OfferButton>
               <div className="mt-3 text-sm md:mt-4"><p className="mb-2">Condição especial de lançamento:</p><CoursePrice /></div>
             </div>
           </div>
@@ -88,7 +87,7 @@ export function Index() {
                 <p>Sem conhecer esses números, você pode vender e continuar sem dinheiro para repor a mercadoria.</p>
                 <p>Neste treinamento, você vai aprender a olhar para a operação completa.</p>
               </div>
-              <Button asChild variant="cta" size="lg" className="mt-8 h-auto min-h-14 whitespace-normal py-3"><a href="#conteudo">Quero aprender a estruturar minha loja <ArrowDown aria-hidden /></a></Button>
+              <OfferButton className="mt-8 h-auto min-h-14 whitespace-normal py-3 text-center">Quero fazer parte da primeira turma</OfferButton>
             </div>
             <div>
               <img src={studio} alt="Vestido no manequim em um espaço para fotografar produtos" loading="lazy" width={1200} height={912} className="aspect-[4/3] w-full rounded-lg object-cover" />
@@ -163,7 +162,7 @@ export function Index() {
       </main>
       <footer className="bg-primary text-primary-foreground"><div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 md:flex-row md:items-center md:justify-between"><div><Logo /><p className="mt-3 text-sm">{configuracaoCurso.nome} • {configuracaoCurso.professor}</p></div><div className="max-w-sm text-xs leading-relaxed text-primary-foreground/85"><p className="mb-2"><Link to="/politica-de-privacidade" className="underline">Política de Privacidade</Link></p><p>Treinamento independente. As marcas citadas pertencem aos seus respectivos titulares.</p><p className="mt-2">Esta página pode usar cookies de medição e publicidade da Meta, do Google e de outras plataformas para medir visitas e anúncios. <button type="button" className="underline" onClick={() => { localStorage.removeItem("consentimento-anuncios"); window.location.reload(); }}>Configurar cookies</button></p></div></div></footer>
       <Consentimento />
-      <aside aria-label="Oferta da primeira turma" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden"><div className="mx-auto flex min-h-20 max-w-xl flex-wrap items-center justify-between gap-3 px-4 py-3"><div><p className="text-xs text-muted-foreground">Primeira turma</p><CoursePrice compact /></div><Button asChild variant="cta" className="min-h-11 px-4"><a href="#investimento">Conhecer a oferta <ArrowDown aria-hidden /></a></Button></div></aside>
+      <aside aria-label="Oferta da primeira turma" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden"><div className="mx-auto flex min-h-20 max-w-xl flex-wrap items-center justify-between gap-3 px-4 py-3"><div><p className="text-xs text-muted-foreground">Primeira turma</p><CoursePrice compact /></div><OfferButton className="h-auto min-h-11 max-w-full whitespace-normal px-4 py-3 text-center">Quero fazer parte da primeira turma</OfferButton></div></aside>
     </div>
   );
 }
