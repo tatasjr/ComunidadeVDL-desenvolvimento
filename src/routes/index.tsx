@@ -43,7 +43,7 @@ export function Index() {
             <div className="max-w-3xl">
               <p className="text-sm font-semibold text-secondary-foreground/85">Treinamento online com {configuracaoCurso.professor} | {identidade.marca}</p>
               <p className="mt-4 font-display text-xl font-bold text-secondary-foreground md:mt-6 md:text-2xl">{configuracaoCurso.nome}</p>
-              <h1 className="mt-3 text-[clamp(1.85rem,5vw,3rem)] font-bold leading-[1.12] text-balance md:mt-4">Você já sabe escolher roupas para vender. Agora, aprenda a levar suas peças para os marketplaces.</h1>
+              <h1 className="mt-3 text-[clamp(1.85rem,5vw,3rem)] font-bold leading-[1.12] text-balance md:mt-4">Transforme suas roupas em vendas nos marketplaces.</h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed md:mt-6 md:text-lg">Saia do “quero começar” e aprenda a organizar sua loja, cadastrar produtos e preparar sua operação para vender na Shopee, no Mercado Livre e na SHEIN — sabendo quanto precisa cobrar e quanto pode sobrar em cada venda.</p>
               <p className="mt-3 text-sm text-secondary-foreground/85 md:mt-4 md:text-base">Para revendedores e fabricantes de roupas que ainda não vendem nesses canais.</p>
               <p className="mt-4 inline-block rounded-lg border border-secondary-foreground/30 px-4 py-2 text-sm font-semibold">Início do treinamento: {dataTreinamentoFormatada()}</p>
