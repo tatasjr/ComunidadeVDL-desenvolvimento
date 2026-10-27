@@ -41,9 +41,9 @@ export function Header() {
           <ul className="flex flex-col">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-primary-foreground">
+                <Link to="/" hash={l.href.slice(1)} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-primary-foreground">
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
