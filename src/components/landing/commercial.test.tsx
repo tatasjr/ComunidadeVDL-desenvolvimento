@@ -1,7 +1,17 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import type { AnchorHTMLAttributes } from "react";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { Index } from "@/routes/index";
 import { configuracaoCurso } from "@/config/curso";
+
+// These tests isolate the offer; navigation is covered by app-routing.test.tsx.
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@tanstack/react-router")>();
+  return {
+    ...original,
+    Link: ({ to, ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { to: string }) => <a href={to} {...props} />,
+  };
+});
 
 afterEach(() => {
   cleanup();
