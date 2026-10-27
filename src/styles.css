@@ -46,6 +46,9 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-lilac: var(--lilac);
+  --color-mist: var(--mist);
+  --color-blush: var(--blush);
+  --color-cream: var(--cream);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
   --shadow-soft: var(--shadow-soft);
@@ -86,6 +89,9 @@
   --success: oklch(0.633 0.2 146);
   --warning: oklch(0.737 0.166 63);
   --lilac: oklch(0.965 0.018 305);
+  --mist: oklch(0.968 0.013 250);
+  --blush: oklch(0.968 0.017 350);
+  --cream: oklch(0.975 0.02 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.91 0.02 300);

@@ -60,7 +60,8 @@ export function Index() {
           </div>
         </div>
 
-        <section id="treinamento" className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+        <section id="treinamento" className="bg-mist">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
           <Eyebrow>O treinamento</Eyebrow>
           <h2 className="max-w-4xl text-3xl font-bold text-primary md:text-4xl">Você vê roupas sendo vendidas nos marketplaces e pensa: “Eu também poderia estar vendendo ali.”</h2>
           <p className="mt-6 text-lg text-muted-foreground">Mas, quando começa a pesquisar, aparecem as dúvidas:</p>
@@ -71,6 +72,7 @@ export function Index() {
             <p className="font-semibold text-primary">Você não precisa resolver todas essas questões sozinho.</p>
             <p>O Moda nos Marketplaces foi pensado para conectar essas decisões em uma sequência prática: da organização do negócio à rotina de pedidos.</p>
             <p>Para você entender o que fazer, por onde começar e o que conferir antes de avançar.</p>
+          </div>
           </div>
         </section>
 
@@ -94,7 +96,7 @@ export function Index() {
           </div>
         </section>
 
-        <section className="bg-lilac">
+        <section className="bg-blush">
           <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
             <Eyebrow>Revenda ou fabricação própria</Eyebrow>
             <h2 className="max-w-3xl text-3xl font-bold text-primary md:text-4xl">Um caminho para quem revende. Um caminho para quem fabrica.</h2>
@@ -107,7 +109,7 @@ export function Index() {
           </div>
         </section>
 
-        <section aria-labelledby="producao-titulo" className="border-b border-border bg-background">
+        <section aria-labelledby="producao-titulo" className="bg-cream">
           <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
             <Eyebrow>TAMBÉM INCLUÍDO NO TREINAMENTO</Eyebrow>
             <h2 id="producao-titulo" className="max-w-4xl text-3xl font-bold text-primary md:text-4xl">Quer aprender a produzir suas próprias peças? Vamos mostrar por onde começar.</h2>
@@ -145,9 +147,11 @@ export function Index() {
           </div>
         </section>
 
-        <section id="quem-ensina" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.7fr_1.3fr] md:py-24">
+        <section id="quem-ensina" className="bg-mist">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.7fr_1.3fr] md:py-24">
           <div className="mx-auto w-full max-w-sm">{identidade.fotoProfessor ? <img src={identidade.fotoProfessor} alt={`Foto de ${configuracaoCurso.professor}`} loading="lazy" className="aspect-[4/5] w-full rounded-lg object-cover" /> : <div role="img" aria-label={`Iniciais de ${configuracaoCurso.professor}`} className="flex aspect-square w-full items-center justify-center rounded-lg bg-primary"><span className="font-display text-8xl font-bold text-primary-foreground">JM</span></div>}</div>
           <div><Eyebrow>Quem vai conduzir você nessa jornada</Eyebrow><h2 className="text-4xl font-bold text-primary md:text-5xl">{configuracaoCurso.professor}</h2><p className="mt-3 font-semibold text-secondary">À frente da Viver de Loja</p>{identidade.biografia.map(b => <p key={b} className="mt-5 text-lg leading-relaxed text-muted-foreground">{b}</p>)}</div>
+          </div>
         </section>
 
         <section id="investimento" className="bg-secondary text-secondary-foreground">
@@ -161,10 +165,10 @@ export function Index() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-4xl px-5 py-16 md:py-24"><Eyebrow>Para quem faz sentido</Eyebrow><h2 className="text-3xl font-bold text-primary md:text-4xl">Este treinamento faz sentido para você se…</h2><ul className="mt-8 space-y-5">{perfil.map(t => <li key={t} className="flex gap-3 text-lg"><Check className="h-6 w-6 shrink-0 text-success" aria-hidden />{t}</li>)}</ul><p className="mt-8 font-semibold text-primary">Não é necessário chegar sabendo operar as plataformas. O treinamento começa pela base.</p></section>
+        <section className="bg-blush"><div className="mx-auto max-w-4xl px-5 py-16 md:py-24"><Eyebrow>Para quem faz sentido</Eyebrow><h2 className="text-3xl font-bold text-primary md:text-4xl">Este treinamento faz sentido para você se…</h2><ul className="mt-8 space-y-5">{perfil.map(t => <li key={t} className="flex gap-3 text-lg"><Check className="h-6 w-6 shrink-0 text-success" aria-hidden />{t}</li>)}</ul><p className="mt-8 font-semibold text-primary">Não é necessário chegar sabendo operar as plataformas. O treinamento começa pela base.</p></div></section>
 
         <section className="bg-lilac"><div className="mx-auto max-w-3xl px-5 py-16 md:py-24"><Eyebrow>Perguntas frequentes</Eyebrow><h2 className="text-3xl font-bold text-primary md:text-4xl">Respostas para decidir com clareza.</h2><Accordion type="single" collapsible className="mt-8">{faqs.map(([q, a], i) => <AccordionItem key={q} value={`f${i}`}><AccordionTrigger className="py-5 text-left text-base font-semibold">{q}</AccordionTrigger><AccordionContent className="text-base leading-relaxed text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
-        <section className="px-5 py-16 text-center md:py-24"><h2 className="mx-auto max-w-3xl text-3xl font-bold text-primary md:text-4xl">Sua próxima etapa pode começar com um plano mais claro.</h2><div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground"><p>Você não precisa ter todas as respostas hoje.</p><p>Precisa aprender a fazer as perguntas certas, conferir os números e executar cada etapa com mais critério.</p><p>O Moda nos Marketplaces foi criado para ajudar você a percorrer esse caminho.</p></div><OfferButton className="mt-8 h-auto min-h-14 whitespace-normal py-3">Quero fazer parte da primeira turma</OfferButton><p className="mt-5 font-semibold text-primary">Primeira turma: {preco}.</p><p className="mt-2 text-sm text-muted-foreground">Aulas ao vivo, gravações e espaço para tirar dúvidas.</p></section>
+        <section className="bg-cream px-5 py-16 text-center md:py-24"><h2 className="mx-auto max-w-3xl text-3xl font-bold text-primary md:text-4xl">Sua próxima etapa pode começar com um plano mais claro.</h2><div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground"><p>Você não precisa ter todas as respostas hoje.</p><p>Precisa aprender a fazer as perguntas certas, conferir os números e executar cada etapa com mais critério.</p><p>O Moda nos Marketplaces foi criado para ajudar você a percorrer esse caminho.</p></div><OfferButton className="mt-8 h-auto min-h-14 whitespace-normal py-3">Quero fazer parte da primeira turma</OfferButton><p className="mt-5 font-semibold text-primary">Primeira turma: {preco}.</p><p className="mt-2 text-sm text-muted-foreground">Aulas ao vivo, gravações e espaço para tirar dúvidas.</p></section>
       </main>
       <footer className="bg-primary text-primary-foreground"><div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 md:flex-row md:items-center md:justify-between"><div><Logo /><p className="mt-3 text-sm">{configuracaoCurso.nome} • {configuracaoCurso.professor}</p></div><div className="max-w-sm text-xs leading-relaxed text-primary-foreground/85"><p className="mb-2"><Link to="/politica-de-privacidade" className="underline">Política de Privacidade</Link></p><p>Treinamento independente. As marcas citadas pertencem aos seus respectivos titulares.</p><p className="mt-2">Esta página pode usar cookies de medição e publicidade da Meta, do Google e de outras plataformas para medir visitas e anúncios. <button type="button" className="underline" onClick={() => { localStorage.removeItem("consentimento-anuncios"); window.location.reload(); }}>Configurar cookies</button></p></div></div></footer>
       <Consentimento />
