@@ -146,7 +146,7 @@ export function Index() {
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-2">
             <div><Eyebrow>Investimento</Eyebrow><h2 className="text-3xl font-bold md:text-4xl">A primeira turma tem uma condição especial para começar.</h2><p className="mt-6 text-lg leading-relaxed text-secondary-foreground/90">Uma formação para conectar produto, preço, anúncio e operação — em vez de tentar descobrir cada etapa isoladamente.</p><ul className="mt-8 space-y-4">{included.map(i => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{i}</li>)}</ul></div>
             <div className="self-start rounded-2xl border border-secondary-foreground/25 bg-primary/35 p-6 sm:p-8 lg:p-10">
-              <div className="mb-8 rounded-xl border-2 border-warning bg-background p-5 text-primary sm:p-6">
+              <div className="mb-8">
                 <p className="text-sm font-extrabold uppercase tracking-wide">Valor previsto do treinamento</p>
                 <p className="mt-2 break-words font-display text-4xl font-bold sm:text-5xl">{previsto}</p>
                 </div><p className="mb-2 font-semibold">Condição especial da primeira turma:</p><CoursePrice featured /><p className="mt-3">Pelo treinamento completo</p>
