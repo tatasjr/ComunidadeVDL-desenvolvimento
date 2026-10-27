@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { OfferButton } from "./OfferButton";
@@ -16,12 +17,12 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-primary/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#topo" aria-label="Viver de Loja — início"><Logo /></a>
+        <Link to="/" hash="topo" aria-label="Viver de Loja — início" onClick={() => setOpen(false)}><Logo /></Link>
         <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-primary-foreground/85 hover:text-primary-foreground">
+            <Link key={l.href} to="/" hash={l.href.slice(1)} className="text-sm font-medium text-primary-foreground/85 hover:text-primary-foreground">
               {l.label}
-            </a>
+            </Link>
           ))}
           <OfferButton className="h-11 px-5 text-sm">Conhecer a primeira turma</OfferButton>
         </nav>
@@ -40,9 +41,9 @@ export function Header() {
           <ul className="flex flex-col">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-primary-foreground">
+                <Link to="/" hash={l.href.slice(1)} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-primary-foreground">
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
