@@ -11,9 +11,9 @@ export const configuracaoCurso = {
   linkPagamento: "",
   parcelamento: {
     // Preencha os dois campos conforme as condições reais do checkout.
-    quantidadeParcelas: null as number | null,
-    valorParcela: null as number | null,
-    semJuros: false,
+    quantidadeParcelas: 10,
+    valorParcela: 39.90,
+    semJuros: true,
   },
 };
 
