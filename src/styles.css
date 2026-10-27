@@ -88,10 +88,10 @@
   --accent-foreground: oklch(0.99 0 0);
   --success: oklch(0.633 0.2 146);
   --warning: oklch(0.737 0.166 63);
-  --lilac: oklch(0.965 0.018 305);
-  --mist: oklch(0.968 0.013 250);
-  --blush: oklch(0.968 0.017 350);
-  --cream: oklch(0.975 0.02 85);
+  --lilac: oklch(0.958 0.022 305);
+  --mist: oklch(0.955 0.022 250);
+  --blush: oklch(0.955 0.026 350);
+  --cream: oklch(0.962 0.03 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.91 0.02 300);
