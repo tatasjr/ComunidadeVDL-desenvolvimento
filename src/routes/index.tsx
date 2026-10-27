@@ -146,10 +146,10 @@ export function Index() {
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-2">
             <div><Eyebrow>Investimento</Eyebrow><h2 className="text-3xl font-bold md:text-4xl">A primeira turma tem uma condição especial para começar.</h2><p className="mt-6 text-lg leading-relaxed text-secondary-foreground/90">Uma formação para conectar produto, preço, anúncio e operação — em vez de tentar descobrir cada etapa isoladamente.</p><ul className="mt-8 space-y-4">{included.map(i => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{i}</li>)}</ul></div>
             <div className="self-start rounded-2xl border border-secondary-foreground/25 bg-primary/35 p-6 sm:p-8 lg:p-10">
-              <div className="mb-8">
-                <p className="text-sm font-extrabold uppercase tracking-wide">Valor previsto do treinamento</p>
-                <p className="mt-2 break-words font-display text-[clamp(1.25rem,3.5vw,1.875rem)] font-bold leading-tight">{previsto}</p>
-                </div><p className="mb-2 font-semibold">Condição especial da primeira turma:</p><CoursePrice featured /><p className="mt-3">Pelo treinamento completo</p>
+              <div className="mb-6 text-secondary-foreground/65">
+                <p className="text-xs font-medium">Valor previsto do treinamento</p>
+                <p className="mt-2 break-words font-display text-[clamp(1.25rem,3.5vw,1.875rem)] font-medium leading-tight">{previsto}</p>
+                </div><p className="mb-3 text-base font-extrabold uppercase tracking-wide text-warning sm:text-lg">Condição especial da primeira turma:</p><CoursePrice featured /><p className="mt-3">Pelo treinamento completo</p>
               <OfferButton className="mt-8 h-auto min-h-14 w-full whitespace-normal py-3 text-center">Quero fazer parte da primeira turma</OfferButton>
               <p className="mt-5 text-sm leading-relaxed text-secondary-foreground/85">Início: {dataTreinamentoFormatada()}. {configuracaoCurso.inscricoesAbertas ? "Inscrições abertas. Confira as condições de pagamento no checkout." : "Inscrições ainda não abertas. Entre no grupo de WhatsApp para acompanhar a abertura da turma."}</p><p className="mt-6 border-t border-secondary-foreground/25 pt-5 text-sm leading-relaxed text-secondary-foreground/85">O investimento no treinamento não inclui estoque, produção, embalagens, publicidade ou eventuais serviços e ferramentas utilizados na loja.</p>
             </div>
