@@ -2,11 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, CircleHelp, Video, MessageCircle, Radio, ArrowDown, Package, Scissors } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { ProductionHighlight } from "@/components/landing/ProductionHighlight";
 import { Header } from "@/components/landing/Header";
 import { Logo } from "@/components/landing/Logo";
 import { OfferButton } from "@/components/landing/OfferButton";
 import { Consentimento } from "@/components/landing/Consentimento";
-import { faqs, included, modules, pilares, pains, perfil, producaoTopics } from "@/components/landing/data";
+import { faqs, included, modules, pilares, pains, perfil } from "@/components/landing/data";
 import { configuracaoCurso, formatarReais, canais, identidade } from "@/config/curso";
 import hero from "@/assets/hero.jpg";
 import studio from "@/assets/studio.jpg";
@@ -42,7 +43,7 @@ export function Index() {
             <div className="max-w-3xl">
               <p className="text-sm font-semibold text-secondary-foreground/85">Treinamento online com {configuracaoCurso.professor} | {identidade.marca}</p>
               <p className="mt-4 font-display text-xl font-bold text-secondary-foreground md:mt-6 md:text-2xl">{configuracaoCurso.nome}</p>
-              <h1 className="mt-3 text-[28px] font-bold leading-tight md:mt-4 md:text-5xl">Você já sabe escolher roupas para vender. Agora, aprenda a levar suas peças para os marketplaces.</h1>
+              <h1 className="mt-3 text-[clamp(1.85rem,5vw,3rem)] font-bold leading-[1.12] text-balance md:mt-4">Você já sabe escolher roupas para vender. Agora, aprenda a levar suas peças para os marketplaces.</h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed md:mt-6 md:text-lg">Saia do “quero começar” e aprenda a organizar sua loja, cadastrar produtos e preparar sua operação para vender na Shopee, no Mercado Livre e na SHEIN — sabendo quanto precisa cobrar e quanto pode sobrar em cada venda.</p>
               <p className="mt-3 text-sm text-secondary-foreground/85 md:mt-4 md:text-base">Para revendedores e fabricantes de roupas que ainda não vendem nesses canais.</p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-6 md:gap-3">
@@ -66,7 +67,7 @@ export function Index() {
           <h2 className="max-w-4xl text-3xl font-bold text-primary md:text-4xl">Você vê roupas sendo vendidas nos marketplaces e pensa: “Eu também poderia estar vendendo ali.”</h2>
           <p className="mt-6 text-lg text-muted-foreground">Mas, quando começa a pesquisar, aparecem as dúvidas:</p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {pains.map(p => <li key={p} className="flex gap-3 rounded-lg border border-border p-5"><CircleHelp className="mt-0.5 h-5 w-5 shrink-0 text-warning" aria-hidden /><span className="font-medium">“{p}”</span></li>)}
+            {pains.map(p => <li key={p} className="flex gap-3 rounded-xl border border-border bg-background/70 p-5"><CircleHelp className="mt-0.5 h-5 w-5 shrink-0 text-warning" aria-hidden /><span className="font-medium">“{p}”</span></li>)}
           </ul>
           <div className="mt-8 max-w-3xl space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p className="font-semibold text-primary">Você não precisa resolver todas essas questões sozinho.</p>
@@ -109,21 +110,7 @@ export function Index() {
           </div>
         </section>
 
-        <section aria-labelledby="producao-titulo" className="bg-cream">
-          <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
-            <Eyebrow>TAMBÉM INCLUÍDO NO TREINAMENTO</Eyebrow>
-            <h2 id="producao-titulo" className="max-w-4xl text-3xl font-bold text-primary md:text-4xl">Quer aprender a produzir suas próprias peças? Vamos mostrar por onde começar.</h2>
-            <div className="mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>Além de aprender a vender nos marketplaces, você terá um módulo dedicado a entender como organizar a produção das próprias roupas — mesmo que nunca tenha fabricado uma peça.</p>
-              <p>Você vai conhecer as etapas para escolher um modelo, buscar profissionais parceiros, planejar o primeiro lote e calcular os custos de produção.</p>
-            </div>
-            <ul className="mt-8 grid gap-x-10 gap-y-4 md:grid-cols-2">
-              {producaoTopics.map(topic => <li key={topic} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-success" aria-hidden /><span>{topic}</span></li>)}
-            </ul>
-            <p className="mt-8 border-l-2 border-success bg-lilac px-5 py-4 font-semibold leading-relaxed text-primary">Você não precisa saber costurar. O foco é aprender a organizar a produção com profissionais parceiros.</p>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Um conteúdo para quem deseja explorar a fabricação própria, sem deixar de lado o caminho da compra para revenda.</p>
-          </div>
-        </section>
+        <ProductionHighlight />
 
         <section id="conteudo" className="mx-auto max-w-4xl px-5 py-16 md:py-24">
           <Eyebrow>Conteúdo do treinamento</Eyebrow>
@@ -149,7 +136,7 @@ export function Index() {
 
         <section id="quem-ensina" className="bg-mist">
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.7fr_1.3fr] md:py-24">
-          <div className="mx-auto w-full max-w-sm">{identidade.fotoProfessor ? <img src={identidade.fotoProfessor} alt={`Foto de ${configuracaoCurso.professor}`} loading="lazy" className="aspect-[4/5] w-full rounded-lg object-cover" /> : <div role="img" aria-label={`Iniciais de ${configuracaoCurso.professor}`} className="flex aspect-square w-full items-center justify-center rounded-lg bg-primary"><span className="font-display text-8xl font-bold text-primary-foreground">JM</span></div>}</div>
+          <div className="mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-lilac shadow-soft">{identidade.fotoProfessor ? <img src={identidade.fotoProfessor} alt={`Foto de ${configuracaoCurso.professor}`} loading="lazy" width={480} height={600} className="aspect-[4/5] w-full object-cover object-top" /> : <div role="img" aria-label={`Iniciais de ${configuracaoCurso.professor}`} className="flex aspect-square w-full items-center justify-center rounded-lg bg-primary"><span className="font-display text-8xl font-bold text-primary-foreground">JM</span></div>}</div>
           <div><Eyebrow>Quem vai conduzir você nessa jornada</Eyebrow><h2 className="text-4xl font-bold text-primary md:text-5xl">{configuracaoCurso.professor}</h2><p className="mt-3 font-semibold text-secondary">À frente da Viver de Loja</p>{identidade.biografia.map(b => <p key={b} className="mt-5 text-lg leading-relaxed text-muted-foreground">{b}</p>)}</div>
           </div>
         </section>
@@ -157,8 +144,8 @@ export function Index() {
         <section id="investimento" className="bg-secondary text-secondary-foreground">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-2">
             <div><Eyebrow>Investimento</Eyebrow><h2 className="text-3xl font-bold md:text-4xl">A primeira turma tem uma condição especial para começar.</h2><p className="mt-6 text-lg leading-relaxed text-secondary-foreground/90">Uma formação para conectar produto, preço, anúncio e operação — em vez de tentar descobrir cada etapa isoladamente.</p><ul className="mt-8 space-y-4">{included.map(i => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{i}</li>)}</ul></div>
-            <div className="border-t border-secondary-foreground/30 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-              <p>Valor previsto do treinamento: <strong>{previsto}</strong></p><p className="mt-8 font-semibold">Primeira turma:</p><p className="mt-2 font-display text-5xl font-bold sm:text-6xl">{preco}</p><p className="mt-3">Pelo treinamento completo</p>
+            <div className="self-start rounded-2xl border border-secondary-foreground/25 bg-primary/35 p-6 sm:p-8 lg:p-10">
+              <p>Valor previsto do treinamento: <strong>{previsto}</strong></p><p className="mt-8 font-semibold">Primeira turma:</p><p className="mt-2 break-words font-display text-[clamp(2.5rem,7vw,3.75rem)] font-bold leading-tight">{preco}</p><p className="mt-3">Pelo treinamento completo</p>
               <OfferButton className="mt-8 h-auto min-h-14 w-full whitespace-normal py-3 text-center">Quero fazer parte da primeira turma</OfferButton>
               <p className="mt-5 text-sm leading-relaxed text-secondary-foreground/85">Datas, condições de pagamento e prazo de acesso serão informados na abertura das inscrições.</p><p className="mt-6 border-t border-secondary-foreground/25 pt-5 text-sm leading-relaxed text-secondary-foreground/85">O investimento no treinamento não inclui estoque, produção, embalagens, publicidade ou eventuais serviços e ferramentas utilizados na loja.</p>
             </div>
