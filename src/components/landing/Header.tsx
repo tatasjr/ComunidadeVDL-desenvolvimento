@@ -24,7 +24,7 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <OfferButton className="h-11 px-5 text-sm">Conhecer a primeira turma</OfferButton>
+          <OfferButton className="h-11 px-5 text-sm">Quero fazer parte da primeira turma</OfferButton>
         </nav>
         <Button variant="ghost" size="icon"
           className="flex h-11 w-11 items-center justify-center rounded-full text-primary-foreground lg:hidden"
@@ -47,7 +47,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <OfferButton className="mt-3 w-full whitespace-normal">Conhecer a primeira turma</OfferButton>
+          <OfferButton className="mt-3 w-full whitespace-normal">Quero fazer parte da primeira turma</OfferButton>
         </nav>
       )}
     </header>
