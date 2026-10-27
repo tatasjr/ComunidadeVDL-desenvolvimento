@@ -12,3 +12,4 @@
 - Keep commercial settings numeric and centralized in `src/config/curso.ts`; format currency at rendering time so every offer uses the same source.
 - Use the shared OfferButton for enrollment actions and validate checkout with the URL parser before rendering a link; navigation actions remain section anchors.
 - Keep curriculum and FAQ data in the landing data module, and keep commercial rules covered by adjacent Vitest tests.
+- Share production topics between its highlight and curriculum in the landing data module so both presentations stay consistent.

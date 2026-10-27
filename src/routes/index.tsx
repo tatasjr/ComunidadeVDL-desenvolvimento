@@ -6,7 +6,7 @@ import { Header } from "@/components/landing/Header";
 import { Logo } from "@/components/landing/Logo";
 import { OfferButton } from "@/components/landing/OfferButton";
 import { Consentimento } from "@/components/landing/Consentimento";
-import { faqs, included, modules, pilares, pains, perfil } from "@/components/landing/data";
+import { faqs, included, modules, pilares, pains, perfil, producaoTopics } from "@/components/landing/data";
 import { configuracaoCurso, formatarReais, canais, identidade } from "@/config/curso";
 import hero from "@/assets/hero.jpg";
 import studio from "@/assets/studio.jpg";
@@ -104,6 +104,22 @@ export function Index() {
             </div>
             <p className="mt-8 text-lg text-muted-foreground">Você poderá priorizar o caminho que faz sentido para o seu momento.</p>
             <p className="mt-3 font-semibold text-primary">Não precisa fabricar para participar. E não precisa entrar em todos os marketplaces de uma vez.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="producao-titulo" className="border-b border-border bg-background">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+            <Eyebrow>TAMBÉM INCLUÍDO NO TREINAMENTO</Eyebrow>
+            <h2 id="producao-titulo" className="max-w-4xl text-3xl font-bold text-primary md:text-4xl">Quer aprender a produzir suas próprias peças? Vamos mostrar por onde começar.</h2>
+            <div className="mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-muted-foreground">
+              <p>Além de aprender a vender nos marketplaces, você terá um módulo dedicado a entender como organizar a produção das próprias roupas — mesmo que nunca tenha fabricado uma peça.</p>
+              <p>Você vai conhecer as etapas para escolher um modelo, buscar profissionais parceiros, planejar o primeiro lote e calcular os custos de produção.</p>
+            </div>
+            <ul className="mt-8 grid gap-x-10 gap-y-4 md:grid-cols-2">
+              {producaoTopics.map(topic => <li key={topic} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-success" aria-hidden /><span>{topic}</span></li>)}
+            </ul>
+            <p className="mt-8 border-l-2 border-success bg-lilac px-5 py-4 font-semibold leading-relaxed text-primary">Você não precisa saber costurar. O foco é aprender a organizar a produção com profissionais parceiros.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Um conteúdo para quem deseja explorar a fabricação própria, sem deixar de lado o caminho da compra para revenda.</p>
           </div>
         </section>
 
