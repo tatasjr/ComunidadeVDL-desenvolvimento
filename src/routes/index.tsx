@@ -148,7 +148,7 @@ export function Index() {
             <div className="self-start rounded-2xl border border-secondary-foreground/25 bg-primary/35 p-6 sm:p-8 lg:p-10">
               <div className="mb-8">
                 <p className="text-sm font-extrabold uppercase tracking-wide">Valor previsto do treinamento</p>
-                <p className="mt-2 break-words font-display text-4xl font-bold sm:text-5xl">{previsto}</p>
+                <p className="mt-2 break-words font-display text-[clamp(1.25rem,3.5vw,1.875rem)] font-bold leading-tight">{previsto}</p>
                 </div><p className="mb-2 font-semibold">Condição especial da primeira turma:</p><CoursePrice featured /><p className="mt-3">Pelo treinamento completo</p>
               <OfferButton className="mt-8 h-auto min-h-14 w-full whitespace-normal py-3 text-center">Quero fazer parte da primeira turma</OfferButton>
               <p className="mt-5 text-sm leading-relaxed text-secondary-foreground/85">Início: {dataTreinamentoFormatada()}. {configuracaoCurso.inscricoesAbertas ? "Inscrições abertas. Confira as condições de pagamento no checkout." : "Inscrições ainda não abertas. Entre no grupo de WhatsApp para acompanhar a abertura da turma."}</p><p className="mt-6 border-t border-secondary-foreground/25 pt-5 text-sm leading-relaxed text-secondary-foreground/85">O investimento no treinamento não inclui estoque, produção, embalagens, publicidade ou eventuais serviços e ferramentas utilizados na loja.</p>
