@@ -8,32 +8,38 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
-import { configuracaoCurso, pagamentoSeguro } from "@/config/curso";
+import { configuracaoCurso, destinoInscricao } from "@/config/curso";
 import { eventoInscricao } from "@/lib/tracking";
 
 export function OfferButton({ children, className }: { children: React.ReactNode; className?: string }) {
   const [open, setOpen] = useState(false);
-  const checkout = pagamentoSeguro(configuracaoCurso.linkPagamento);
-  const rastrear = () => eventoInscricao(configuracaoCurso.valorCurso);
-  if (checkout) {
+  const destino = destinoInscricao();
+  const abertas = configuracaoCurso.inscricoesAbertas;
+  const texto = abertas ? children : "Entrar no grupo de WhatsApp";
+  const rastrear = () => {
+    if (abertas && destino) eventoInscricao(configuracaoCurso.valorCurso);
+  };
+  if (destino) {
     return (
       <Button asChild variant="cta" size="lg" className={className}>
-        <a href={checkout} onClick={rastrear}>{children}</a>
+        <a href={destino} onClick={rastrear}>{texto}</a>
       </Button>
     );
   }
   return (
     <>
       <Button variant="cta" size="lg" className={className} onClick={() => { rastrear(); setOpen(true); }}>
-        {children}
+        {texto}
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="rounded-lg">
           <DialogTitle className="font-display text-2xl text-primary">
-            As inscrições ainda não estão abertas.
+            {abertas ? "Inscrições abertas" : "Grupo de WhatsApp em preparação"}
           </DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
-            O calendário, as condições de pagamento e o canal de inscrição serão divulgados na abertura da turma.
+            {abertas
+              ? "O link de pagamento está sendo preparado. Volte em breve para concluir sua inscrição."
+              : "As inscrições ainda não estão abertas. O link do grupo de WhatsApp será disponibilizado em breve."}
           </DialogDescription>
           <DialogFooter>
             <DialogClose asChild>

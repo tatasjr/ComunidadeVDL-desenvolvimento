@@ -3,7 +3,18 @@ export const configuracaoCurso = {
   professor: "Junior Martins",
   valorCurso: 397.00,
   valorPrevisto: 1000.00,
+  // Data de início no formato AAAA-MM-DD. Vazio = data a confirmar.
+  dataTreinamento: "",
+  inscricoesAbertas: false,
+  // Inscrições fechadas: os botões levam ao grupo. Abertas: levam ao checkout.
+  linkGrupoWhatsapp: "",
   linkPagamento: "",
+  parcelamento: {
+    // Preencha os dois campos conforme as condições reais do checkout.
+    quantidadeParcelas: null as number | null,
+    valorParcela: null as number | null,
+    semJuros: false,
+  },
 };
 
 export const formatarReais = (valor: number) =>
@@ -32,3 +43,33 @@ export const identidade = {
     "Quero ajudar você a entender as decisões da sua loja e colocar o aprendizado em prática.",
   ],
 };
+
+
+export function destinoInscricao(): string | null {
+  return pagamentoSeguro(configuracaoCurso.inscricoesAbertas
+    ? configuracaoCurso.linkPagamento
+    : configuracaoCurso.linkGrupoWhatsapp);
+}
+
+export function textoParcelamento(): string {
+  const { quantidadeParcelas, valorParcela, semJuros } = configuracaoCurso.parcelamento;
+  if (quantidadeParcelas === null || valorParcela === null ||
+      !Number.isInteger(quantidadeParcelas) || quantidadeParcelas < 2 ||
+      !Number.isFinite(valorParcela) || valorParcela <= 0) {
+    return "Parcelamento: condições a confirmar.";
+  }
+  const total = quantidadeParcelas * valorParcela;
+  // Não anunciar sem juros quando o total difere do preço à vista.
+  const semAcrescimo = semJuros && Math.abs(total - configuracaoCurso.valorCurso) < 0.011;
+  return `ou ${quantidadeParcelas}x de ${formatarReais(valorParcela)}${semAcrescimo ? " sem juros" : ""} (total: ${formatarReais(total)})`;
+}
+
+export function dataTreinamentoFormatada(): string {
+  const valor = configuracaoCurso.dataTreinamento;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(valor)) return "Data a confirmar";
+  const data = new Date(`${valor}T12:00:00Z`);
+  if (!Number.isFinite(data.getTime()) || data.toISOString().slice(0, 10) !== valor) return "Data a confirmar";
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+  }).format(data);
+}

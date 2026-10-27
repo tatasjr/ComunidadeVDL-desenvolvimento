@@ -2,13 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, CircleHelp, Video, MessageCircle, Radio, ArrowDown, Package, Scissors } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { CoursePrice } from "@/components/landing/CoursePrice";
 import { ProductionHighlight } from "@/components/landing/ProductionHighlight";
 import { Header } from "@/components/landing/Header";
 import { Logo } from "@/components/landing/Logo";
 import { OfferButton } from "@/components/landing/OfferButton";
 import { Consentimento } from "@/components/landing/Consentimento";
-import { faqs, included, modules, pilares, pains, perfil } from "@/components/landing/data";
-import { configuracaoCurso, formatarReais, canais, identidade } from "@/config/curso";
+import { obterFaqs, included, modules, pilares, pains, perfil } from "@/components/landing/data";
+import { configuracaoCurso, formatarReais, canais, identidade, dataTreinamentoFormatada } from "@/config/curso";
 import hero from "@/assets/hero.jpg";
 import studio from "@/assets/studio.jpg";
 
@@ -26,14 +27,13 @@ const formatos = [
   { icon: Radio, title: "Aulas online ao vivo", text: "Para acompanhar explicações e demonstrações." },
   { icon: Video, title: "Gravações na área de estudos", text: "Para rever etapas e retomar explicações." },
   { icon: MessageCircle, title: "Grupo de WhatsApp", text: "Espaço para dúvidas relacionadas ao treinamento." },
-  { icon: CircleHelp, title: "Dois plantões ao vivo", text: "Encontros dedicados aos pontos que precisam de mais atenção." },
+  { icon: CircleHelp, title: "Dois plantões de dúvidas ao vivo", text: "Em grupo para os alunos da turma, em datas estipuladas, para esclarecer os pontos que precisam de mais atenção." },
 ];
 
 export function Index() {
-  const preco = formatarReais(configuracaoCurso.valorCurso);
   const previsto = formatarReais(configuracaoCurso.valorPrevisto);
   return (
-    <div id="topo" className="bg-background pb-24 md:pb-0">
+    <div id="topo" className="bg-background pb-52 md:pb-0">
       <Header />
       <main>
         <section className="relative isolate overflow-hidden bg-secondary pt-16 text-secondary-foreground">
@@ -46,11 +46,12 @@ export function Index() {
               <h1 className="mt-3 text-[clamp(1.85rem,5vw,3rem)] font-bold leading-[1.12] text-balance md:mt-4">Você já sabe escolher roupas para vender. Agora, aprenda a levar suas peças para os marketplaces.</h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed md:mt-6 md:text-lg">Saia do “quero começar” e aprenda a organizar sua loja, cadastrar produtos e preparar sua operação para vender na Shopee, no Mercado Livre e na SHEIN — sabendo quanto precisa cobrar e quanto pode sobrar em cada venda.</p>
               <p className="mt-3 text-sm text-secondary-foreground/85 md:mt-4 md:text-base">Para revendedores e fabricantes de roupas que ainda não vendem nesses canais.</p>
+              <p className="mt-4 inline-block rounded-lg border border-secondary-foreground/30 px-4 py-2 text-sm font-semibold">Início do treinamento: {dataTreinamentoFormatada()}</p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-6 md:gap-3">
-                {["Aulas online ao vivo.", "Gravações para revisar.", "Grupo de WhatsApp para dúvidas.", "Dois plantões de dúvidas ao vivo."].map(t => <li key={t} className="flex gap-2 text-sm"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{t}</li>)}
+                {["Aulas online ao vivo.", "Gravações para revisar.", "Grupo de WhatsApp para dúvidas.", "Dois plantões de dúvidas ao vivo, em grupo para os alunos da turma, em datas estipuladas."].map(t => <li key={t} className="flex gap-2 text-sm"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{t}</li>)}
               </ul>
               <OfferButton className="mt-5 h-auto min-h-14 whitespace-normal py-3 text-center md:mt-8">Quero conhecer a primeira turma</OfferButton>
-              <p className="mt-3 text-sm md:mt-4">Condição especial de lançamento: <strong>{preco}</strong>.</p>
+              <div className="mt-3 text-sm md:mt-4"><p className="mb-2">Condição especial de lançamento:</p><CoursePrice /></div>
             </div>
           </div>
         </section>
@@ -130,7 +131,7 @@ export function Index() {
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Aprender uma ferramenta nova pode trazer dúvidas que só aparecem quando você tenta fazer. Por isso, o treinamento combina:</p>
             <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">{formatos.map(({ icon: Icon, title, text }) => <li key={title} className="border-t border-border pt-5"><Icon className="mb-4 h-7 w-7 text-accent" aria-hidden /><h3 className="text-xl font-bold text-primary">{title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></li>)}</ul>
             <p className="mt-10 text-lg font-semibold text-primary">Previsão inicial: aproximadamente dois meses de treinamento.</p>
-            <p className="mt-3 max-w-3xl text-muted-foreground">Calendário, horários, duração final e prazo de acesso às gravações serão informados antes da abertura das inscrições.</p>
+            <p className="mt-3 max-w-3xl text-muted-foreground">Início do treinamento: {dataTreinamentoFormatada()}. Horários, duração final e prazo de acesso às gravações serão informados à turma.</p>
           </div>
         </section>
 
@@ -145,21 +146,24 @@ export function Index() {
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-2">
             <div><Eyebrow>Investimento</Eyebrow><h2 className="text-3xl font-bold md:text-4xl">A primeira turma tem uma condição especial para começar.</h2><p className="mt-6 text-lg leading-relaxed text-secondary-foreground/90">Uma formação para conectar produto, preço, anúncio e operação — em vez de tentar descobrir cada etapa isoladamente.</p><ul className="mt-8 space-y-4">{included.map(i => <li key={i} className="flex gap-3"><Check className="h-5 w-5 shrink-0 text-warning" aria-hidden />{i}</li>)}</ul></div>
             <div className="self-start rounded-2xl border border-secondary-foreground/25 bg-primary/35 p-6 sm:p-8 lg:p-10">
-              <p>Valor previsto do treinamento: <strong>{previsto}</strong></p><p className="mt-8 font-semibold">Primeira turma:</p><p className="mt-2 break-words font-display text-[clamp(2.5rem,7vw,3.75rem)] font-bold leading-tight">{preco}</p><p className="mt-3">Pelo treinamento completo</p>
+              <div className="mb-8 rounded-xl border-2 border-warning bg-background p-5 text-primary sm:p-6">
+                <p className="text-sm font-extrabold uppercase tracking-wide">Valor previsto do treinamento</p>
+                <p className="mt-2 break-words font-display text-4xl font-bold sm:text-5xl">{previsto}</p>
+                </div><p className="mb-2 font-semibold">Condição especial da primeira turma:</p><CoursePrice featured /><p className="mt-3">Pelo treinamento completo</p>
               <OfferButton className="mt-8 h-auto min-h-14 w-full whitespace-normal py-3 text-center">Quero fazer parte da primeira turma</OfferButton>
-              <p className="mt-5 text-sm leading-relaxed text-secondary-foreground/85">Datas, condições de pagamento e prazo de acesso serão informados na abertura das inscrições.</p><p className="mt-6 border-t border-secondary-foreground/25 pt-5 text-sm leading-relaxed text-secondary-foreground/85">O investimento no treinamento não inclui estoque, produção, embalagens, publicidade ou eventuais serviços e ferramentas utilizados na loja.</p>
+              <p className="mt-5 text-sm leading-relaxed text-secondary-foreground/85">Início: {dataTreinamentoFormatada()}. {configuracaoCurso.inscricoesAbertas ? "Inscrições abertas. Confira as condições de pagamento no checkout." : "Inscrições ainda não abertas. Entre no grupo de WhatsApp para acompanhar a abertura da turma."}</p><p className="mt-6 border-t border-secondary-foreground/25 pt-5 text-sm leading-relaxed text-secondary-foreground/85">O investimento no treinamento não inclui estoque, produção, embalagens, publicidade ou eventuais serviços e ferramentas utilizados na loja.</p>
             </div>
           </div>
         </section>
 
         <section className="bg-blush"><div className="mx-auto max-w-4xl px-5 py-16 md:py-24"><Eyebrow>Para quem faz sentido</Eyebrow><h2 className="text-3xl font-bold text-primary md:text-4xl">Este treinamento faz sentido para você se…</h2><ul className="mt-8 space-y-5">{perfil.map(t => <li key={t} className="flex gap-3 text-lg"><Check className="h-6 w-6 shrink-0 text-success" aria-hidden />{t}</li>)}</ul><p className="mt-8 font-semibold text-primary">Não é necessário chegar sabendo operar as plataformas. O treinamento começa pela base.</p></div></section>
 
-        <section className="bg-lilac"><div className="mx-auto max-w-3xl px-5 py-16 md:py-24"><Eyebrow>Perguntas frequentes</Eyebrow><h2 className="text-3xl font-bold text-primary md:text-4xl">Respostas para decidir com clareza.</h2><Accordion type="single" collapsible className="mt-8">{faqs.map(([q, a], i) => <AccordionItem key={q} value={`f${i}`}><AccordionTrigger className="py-5 text-left text-base font-semibold">{q}</AccordionTrigger><AccordionContent className="text-base leading-relaxed text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
-        <section className="bg-cream px-5 py-16 text-center md:py-24"><h2 className="mx-auto max-w-3xl text-3xl font-bold text-primary md:text-4xl">Sua próxima etapa pode começar com um plano mais claro.</h2><div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground"><p>Você não precisa ter todas as respostas hoje.</p><p>Precisa aprender a fazer as perguntas certas, conferir os números e executar cada etapa com mais critério.</p><p>O Moda nos Marketplaces foi criado para ajudar você a percorrer esse caminho.</p></div><OfferButton className="mt-8 h-auto min-h-14 whitespace-normal py-3">Quero fazer parte da primeira turma</OfferButton><p className="mt-5 font-semibold text-primary">Primeira turma: {preco}.</p><p className="mt-2 text-sm text-muted-foreground">Aulas ao vivo, gravações e espaço para tirar dúvidas.</p></section>
+        <section className="bg-lilac"><div className="mx-auto max-w-3xl px-5 py-16 md:py-24"><Eyebrow>Perguntas frequentes</Eyebrow><h2 className="text-3xl font-bold text-primary md:text-4xl">Respostas para decidir com clareza.</h2><Accordion type="single" collapsible className="mt-8">{obterFaqs().map(([q, a], i) => <AccordionItem key={q} value={`f${i}`}><AccordionTrigger className="py-5 text-left text-base font-semibold">{q}</AccordionTrigger><AccordionContent className="text-base leading-relaxed text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
+        <section className="bg-cream px-5 py-16 text-center md:py-24"><h2 className="mx-auto max-w-3xl text-3xl font-bold text-primary md:text-4xl">Sua próxima etapa pode começar com um plano mais claro.</h2><div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground"><p>Você não precisa ter todas as respostas hoje.</p><p>Precisa aprender a fazer as perguntas certas, conferir os números e executar cada etapa com mais critério.</p><p>O Moda nos Marketplaces foi criado para ajudar você a percorrer esse caminho.</p></div><OfferButton className="mt-8 h-auto min-h-14 whitespace-normal py-3">Quero fazer parte da primeira turma</OfferButton><div className="mt-5 font-semibold text-primary"><p className="mb-2">Primeira turma:</p><CoursePrice /></div><p className="mt-2 text-sm text-muted-foreground">Aulas ao vivo, gravações e espaço para tirar dúvidas.</p></section>
       </main>
       <footer className="bg-primary text-primary-foreground"><div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 md:flex-row md:items-center md:justify-between"><div><Logo /><p className="mt-3 text-sm">{configuracaoCurso.nome} • {configuracaoCurso.professor}</p></div><div className="max-w-sm text-xs leading-relaxed text-primary-foreground/85"><p className="mb-2"><Link to="/politica-de-privacidade" className="underline">Política de Privacidade</Link></p><p>Treinamento independente. As marcas citadas pertencem aos seus respectivos titulares.</p><p className="mt-2">Esta página pode usar cookies de medição e publicidade da Meta, do Google e de outras plataformas para medir visitas e anúncios. <button type="button" className="underline" onClick={() => { localStorage.removeItem("consentimento-anuncios"); window.location.reload(); }}>Configurar cookies</button></p></div></div></footer>
       <Consentimento />
-      <aside aria-label="Oferta da primeira turma" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden"><div className="mx-auto flex min-h-20 max-w-xl items-center justify-between gap-3 px-4 py-3"><div><p className="text-xs text-muted-foreground">Primeira turma</p><p className="text-xl font-bold text-primary">{preco}</p></div><Button asChild variant="cta" className="min-h-11 px-4"><a href="#investimento">Conhecer a oferta <ArrowDown aria-hidden /></a></Button></div></aside>
+      <aside aria-label="Oferta da primeira turma" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden"><div className="mx-auto flex min-h-20 max-w-xl flex-wrap items-center justify-between gap-3 px-4 py-3"><div><p className="text-xs text-muted-foreground">Primeira turma</p><CoursePrice compact /></div><Button asChild variant="cta" className="min-h-11 px-4"><a href="#investimento">Conhecer a oferta <ArrowDown aria-hidden /></a></Button></div></aside>
     </div>
   );
 }

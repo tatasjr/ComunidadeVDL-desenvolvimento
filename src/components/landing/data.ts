@@ -1,3 +1,5 @@
+import { dataTreinamentoFormatada } from "@/config/curso";
+
 export const pains = [
   "Qual plataforma é melhor para começar?",
   "Meu fornecedor tem preço para eu conseguir competir?",
@@ -29,7 +31,7 @@ export const modules: Module[] = [
   { title: "Divulgue com objetivo e acompanhe os números", desc: "Entenda o que observar antes de colocar mais dinheiro em uma campanha.", topics: ["Cupons, promoções e primeiros testes de Ads (anúncios pagos).", "Orçamento, visitas, cliques, conversão e margem."], practice: "plano de lançamento e primeiro teste de campanha." },
   { title: "Construa uma rotina que você consiga manter", desc: "Saiba o que precisa acontecer todos os dias e o que revisar a cada semana.", topics: ["Atendimento, separação, embalagem e envio.", "Devoluções, reposição e acompanhamento financeiro."], practice: "checklist operacional e plano de ação de 30 dias." },
 ];
-export const included = ["Conteúdo dos 10 módulos.", "Aulas online inicialmente ao vivo.", "Gravações na área de estudos.", "Grupo de WhatsApp para dúvidas.", "Dois plantões de dúvidas ao vivo.", "Módulo de produção própria para quem quer começar a fabricar suas peças."];
+export const included = ["Conteúdo dos 10 módulos.", "Aulas online inicialmente ao vivo.", "Gravações na área de estudos.", "Grupo de WhatsApp para dúvidas.", "Dois plantões de dúvidas ao vivo, em grupo para os alunos da turma, em datas estipuladas.", "Módulo de produção própria para quem quer começar a fabricar suas peças."];
 export const perfil = ["Você revende ou fabrica roupas e quer começar nos marketplaces.", "Precisa de uma sequência para organizar os primeiros passos.", "Quer compreender os custos antes de definir seus preços.", "Está disposto a separar tempo para assistir às aulas e aplicar o conteúdo.", "Quer construir uma operação que consiga acompanhar e melhorar."];
 export const faqs = [
   ["Nunca vendi em marketplaces. Consigo acompanhar?", "O treinamento foi pensado para quem está começando, da preparação do negócio à rotina da loja."],
@@ -42,3 +44,10 @@ export const faqs = [
   ["O treinamento garante vendas ou lucro?", "Não. O treinamento oferece orientação e aplicações práticas. Resultados dependem da execução, dos produtos, da demanda, dos custos e de outros fatores."],
   ["Quando começa?", "O calendário está em definição, com previsão inicial de aproximadamente dois meses de treinamento. As informações completas serão divulgadas na abertura das inscrições."],
 ] as const;
+
+
+export function obterFaqs() {
+  return faqs.map(([pergunta, resposta]) => [pergunta, pergunta === "Quando começa?"
+    ? `Início do treinamento: ${dataTreinamentoFormatada()}. A previsão de duração é de aproximadamente dois meses. Horários, duração final e prazo de acesso às gravações serão informados à turma.`
+    : resposta] as const);
+}
