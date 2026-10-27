@@ -137,7 +137,7 @@ export function Index() {
         <section id="quem-ensina" className="bg-mist">
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.7fr_1.3fr] md:py-24">
           <div className="mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-lilac shadow-soft">{identidade.fotoProfessor ? <img src={identidade.fotoProfessor} alt={`Foto de ${configuracaoCurso.professor}`} loading="lazy" width={480} height={600} className="aspect-[4/5] w-full object-cover object-top" /> : <div role="img" aria-label={`Iniciais de ${configuracaoCurso.professor}`} className="flex aspect-square w-full items-center justify-center rounded-lg bg-primary"><span className="font-display text-8xl font-bold text-primary-foreground">JM</span></div>}</div>
-          <div><Eyebrow>Quem vai conduzir você nessa jornada</Eyebrow><h2 className="text-4xl font-bold text-primary md:text-5xl">{configuracaoCurso.professor}</h2><p className="mt-3 font-semibold text-secondary">À frente da Viver de Loja</p>{identidade.biografia.map(b => <p key={b} className="mt-5 text-lg leading-relaxed text-muted-foreground">{b}</p>)}</div>
+          <div><Eyebrow>Quem vai conduzir você nessa jornada</Eyebrow><h2 className="text-4xl font-bold text-primary md:text-5xl">{configuracaoCurso.professor}</h2><p className="mt-3 font-semibold text-secondary">Viver de Loja</p>{identidade.biografia.map(b => <p key={b} className="mt-5 text-lg leading-relaxed text-muted-foreground">{b}</p>)}</div>
           </div>
         </section>
 
