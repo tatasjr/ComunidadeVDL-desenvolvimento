@@ -7,7 +7,7 @@ export const configuracaoCurso = {
   dataTreinamento: "",
   inscricoesAbertas: false,
   // Inscrições fechadas: os botões levam ao grupo. Abertas: levam ao checkout.
-  linkGrupoWhatsapp: "",
+  linkGrupoWhatsapp: "https://chat.whatsapp.com/HaEBHKEhvOMH3lb9QWQIMR",
   linkPagamento: "",
   parcelamento: {
     // Preencha os dois campos conforme as condições reais do checkout.
