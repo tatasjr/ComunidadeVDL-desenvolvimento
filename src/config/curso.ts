@@ -37,6 +37,7 @@ export const identidade = {
   logo: null as string | null,
   fotoProfessor: "https://comunidade.viverdeloja.com.br/imagens/junior_martins.jpg",
   biografia: [
+    "Há 10 anos, a Viver de Loja ajuda revendedores de roupas a vender pela internet e presencialmente, conectando quem revende a fornecedores de roupas de confiança.",
     "Meu trabalho na Viver de Loja me coloca perto da realidade de quem compra e vende roupas: a busca por fornecedores, a preocupação com preço e o desafio de transformar divulgação em venda.",
     "Também vivo a operação de uma marca própria de roupas, a Lunavelle, e os desafios de vender em marketplaces.",
     "Neste treinamento, vou conectar esses assuntos em um caminho para quem está começando: organizar o negócio, escolher produtos, calcular preços, preparar anúncios e cuidar da operação.",
