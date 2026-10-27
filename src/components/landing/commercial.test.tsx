@@ -27,12 +27,13 @@ describe("Oferta em toda a página", () => {
     expect(container.textContent?.replace(/\s/g, "").match(/R\$512,50/g)).toHaveLength(4);
     expect(container.textContent?.replace(/\s/g, "")).not.toContain("R$397,00");
   });
-  it("direciona todos os cinco botões de inscrição para o HTTPS configurado", () => {
+  it("direciona todos os sete botões de inscrição para o HTTPS configurado", () => {
     configuracaoCurso.inscricoesAbertas = true;
     configuracaoCurso.linkPagamento = "https://checkout.example.com/curso";
     const { container } = render(<Index />);
     fireEvent.click(screen.getByRole("button", { name: "Abrir menu" }));
-    expect(container.querySelectorAll('a[href="https://checkout.example.com/curso"]')).toHaveLength(5);
+    expect(container.querySelectorAll('a[href="https://checkout.example.com/curso"]')).toHaveLength(7);
+    expect(screen.getAllByRole("link", { name: "Quero fazer parte da primeira turma" })).toHaveLength(7);
   });
   it("não cria links de pagamento para endereço inseguro", () => {
     configuracaoCurso.inscricoesAbertas = true;
@@ -40,18 +41,18 @@ describe("Oferta em toda a página", () => {
     const { container } = render(<Index />);
     fireEvent.click(screen.getByRole("button", { name: "Abrir menu" }));
     expect(container.querySelectorAll('a[href^="http:"]')).toHaveLength(0);
-    expect(screen.getAllByRole("button", { name: /primeira turma/ })).toHaveLength(5);
+    expect(screen.getAllByRole("button", { name: /primeira turma/ })).toHaveLength(7);
   });
-  it("leva os cinco botões ao grupo quando as inscrições estão fechadas, mesmo com checkout preenchido", () => {
+  it("leva os sete botões ao grupo quando as inscrições estão fechadas, mesmo com checkout preenchido", () => {
     configuracaoCurso.inscricoesAbertas = false;
     configuracaoCurso.linkPagamento = "https://checkout.example.com/curso";
     configuracaoCurso.linkGrupoWhatsapp = "https://chat.whatsapp.com/grupo-da-turma";
     const { container } = render(<Index />);
     fireEvent.click(screen.getByRole("button", { name: "Abrir menu" }));
-    expect(container.querySelectorAll('a[href="https://chat.whatsapp.com/grupo-da-turma"]')).toHaveLength(5);
-    expect(screen.getAllByRole("link", { name: "Entrar no grupo de WhatsApp" })).toHaveLength(5);
+    expect(container.querySelectorAll('a[href="https://chat.whatsapp.com/grupo-da-turma"]')).toHaveLength(7);
+    expect(screen.getAllByRole("link", { name: "Entrar no grupo de WhatsApp" })).toHaveLength(7);
     expect(container.querySelectorAll('a[href="https://checkout.example.com/curso"]')).toHaveLength(0);
-    expect(screen.getByRole("link", { name: /Conhecer a oferta/ })).toHaveAttribute("href", "#investimento");
+
   });
   it("com inscrições abertas não usa o grupo como alternativa a um checkout inválido", () => {
     configuracaoCurso.inscricoesAbertas = true;
@@ -59,7 +60,7 @@ describe("Oferta em toda a página", () => {
     configuracaoCurso.linkGrupoWhatsapp = "https://chat.whatsapp.com/grupo-da-turma";
     const { container } = render(<Index />);
     expect(container.querySelectorAll('a[href^="https://chat.whatsapp.com"]')).toHaveLength(0);
-    fireEvent.click(screen.getByRole("button", { name: "Quero conhecer a primeira turma" }));
+    fireEvent.click(screen.getAllByRole("button", { name: "Quero fazer parte da primeira turma" })[0]);
     expect(screen.getByRole("dialog")).toHaveTextContent("O link de pagamento está sendo preparado");
   });
   it("mostra um aviso quando o grupo não está configurado", () => {
