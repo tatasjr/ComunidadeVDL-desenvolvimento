@@ -11,11 +11,11 @@ import {
 import { configuracaoCurso, destinoInscricao } from "@/config/curso";
 import { eventoInscricao } from "@/lib/tracking";
 
-export function OfferButton({ children, className }: { children: React.ReactNode; className?: string }) {
+export function OfferButton({ className }: { children?: React.ReactNode; className?: string }) {
   const [open, setOpen] = useState(false);
   const destino = destinoInscricao();
   const abertas = configuracaoCurso.inscricoesAbertas;
-  const texto = abertas ? children : "Entrar no grupo de WhatsApp";
+  const texto = abertas ? "Quero fazer parte da primeira turma" : "Entrar no grupo de WhatsApp";
   const rastrear = () => {
     if (abertas && destino) eventoInscricao(configuracaoCurso.valorCurso);
   };
