@@ -98,8 +98,8 @@
   --input: oklch(0.91 0.02 300);
   --ring: oklch(0.6 0.23 358);
   --shadow-soft: 0 20px 50px -24px color-mix(in oklab, var(--primary) 35%, transparent);
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Manrope", system-ui, sans-serif;
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 
 .dark {
