@@ -32,7 +32,7 @@ const formatos = [
 export function Index() {
   const previsto = formatarReais(configuracaoCurso.valorPrevisto);
   return (
-    <div id="topo" className="bg-background pb-52 md:pb-0">
+    <div id="topo" className="bg-background pb-[calc(16rem+env(safe-area-inset-bottom))] md:pb-0">
       <Header />
       <main>
         <section className="relative isolate overflow-hidden bg-secondary pt-16 text-secondary-foreground">
@@ -162,7 +162,16 @@ export function Index() {
       </main>
       <footer className="bg-primary text-primary-foreground"><div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 md:flex-row md:items-center md:justify-between"><div><Logo /><p className="mt-3 text-sm">{configuracaoCurso.nome} • {configuracaoCurso.professor}</p></div><div className="max-w-sm text-xs leading-relaxed text-primary-foreground/85"><p className="mb-2"><Link to="/politica-de-privacidade" className="underline">Política de Privacidade</Link></p><p>Treinamento independente. As marcas citadas pertencem aos seus respectivos titulares.</p><p className="mt-2">Esta página pode usar cookies de medição e publicidade da Meta, do Google e de outras plataformas para medir visitas e anúncios. <button type="button" className="underline" onClick={() => { localStorage.removeItem("consentimento-anuncios"); window.location.reload(); }}>Configurar cookies</button></p></div></div></footer>
       <Consentimento />
-      <aside aria-label="Oferta da primeira turma" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden"><div className="mx-auto flex min-h-20 max-w-xl flex-wrap items-center justify-between gap-3 px-4 py-3"><div><p className="text-xs text-muted-foreground">Primeira turma</p><CoursePrice compact /></div><OfferButton className="h-auto min-h-11 max-w-full whitespace-normal px-4 py-3 text-center">Quero fazer parte da primeira turma</OfferButton></div></aside>
+      <aside aria-label="Oferta da primeira turma" className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden">
+        <div className="mx-auto max-w-xl space-y-3 px-4 py-3">
+          <p className="text-xs leading-relaxed text-muted-foreground">Valor previsto do treinamento: <span className="font-display font-medium">{previsto}</span></p>
+          <div>
+            <p className="mb-1 text-xs font-bold text-primary">Condição especial da primeira turma:</p>
+            <div className="[&>div>p:first-child]:text-2xl"><CoursePrice compact /></div>
+          </div>
+          <OfferButton className="h-auto min-h-11 w-full whitespace-normal px-4 py-3 text-center">Quero fazer parte da primeira turma</OfferButton>
+        </div>
+      </aside>
     </div>
   );
 }
