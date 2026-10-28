@@ -12,7 +12,7 @@ export const configuracaoCurso = {
   parcelamento: {
     // Preencha os dois campos conforme as condições reais do checkout.
     quantidadeParcelas: 10,
-    valorParcela: 39.90,
+    valorParcela: 59.73,
     semJuros: true,
   },
 };
