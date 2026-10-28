@@ -1,7 +1,7 @@
 export const configuracaoCurso = {
   nome: "Moda nos Marketplaces",
   professor: "Junior Martins",
-  valorCurso: 397.00,
+  valorCurso: 497.00,
   valorPrevisto: 2000.00,
   // Data de início no formato AAAA-MM-DD. Vazio = data a confirmar.
   dataTreinamento: "",
